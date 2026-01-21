@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -44,7 +45,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.cupcake.data.DataSource
-import com.example.cupcake.ui.OrderSummaryPreview
 import com.example.cupcake.ui.OrderSummaryScreen
 import com.example.cupcake.ui.OrderViewModel
 import com.example.cupcake.ui.SelectOptionScreen
