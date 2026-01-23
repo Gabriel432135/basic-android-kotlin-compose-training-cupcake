@@ -55,7 +55,8 @@ class CupcakeScreenNavigationTest {
     @Test
     fun cupcakeNavHost_clickUpOnFlavorScreen_navigateToStartOrderScreen() {
         navigateToFlavorScreen()
-        composeTestRule.onNodeWithStringId(R.string.back_button)
+        val backText = composeTestRule.activity.getString(R.string.back_button)
+        composeTestRule.onNodeWithContentDescription(backText)
             .performClick()
         navController.assertCurrentRouteName(CupcakeScreen.Start.name)
     }
@@ -71,7 +72,8 @@ class CupcakeScreenNavigationTest {
     @Test
     fun cupcakeNavHost_clickUpOnPickupScreen_navigateToFlavorScreen() {
         navigateToPickupScreen()
-        composeTestRule.onNodeWithStringId(R.string.back_button)
+        val backText = composeTestRule.activity.getString(R.string.back_button)
+        composeTestRule.onNodeWithContentDescription(backText)
             .performClick()
         navController.assertCurrentRouteName(CupcakeScreen.Flavor.name)
     }
