@@ -2,6 +2,8 @@ package com.example.cupcake.test
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
@@ -94,10 +96,21 @@ class CupcakeScreenNavigationTest {
         navController.assertCurrentRouteName(CupcakeScreen.Start.name)
     }
 
+    @Test
+    fun cupcakeNavHost_noFlavorChosen_isNextButtonDisabled(){
+        navigateToFlavorScreen()
+        composeTestRule.onNodeWithStringId(R.string.next).assertIsNotEnabled()
+    }
+
+    @Test
+    fun cupcakeNavHost_clickOneFlavor_isNextButtonEnabled(){
+        navigateToFlavorScreen()
+        composeTestRule.onNodeWithStringId(R.string.chocolate).performClick()
+        composeTestRule.onNodeWithStringId(R.string.next).assertIsEnabled()
+    }
+
     private fun navigateToFlavorScreen(){
         composeTestRule.onNodeWithStringId(R.string.one_cupcake)
-            .performClick()
-        composeTestRule.onNodeWithStringId(R.string.chocolate)
             .performClick()
     }
 
